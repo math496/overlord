@@ -3,7 +3,7 @@ CC = g++
 CCFLAGS =-g -std=c++11 -I /usr/include/boost/ -Wall -Wpointer-arith -Wcast-qual -Wwrite-strings
 
 all: main.o overlord.o minion.o
-	${CC} ${CCFLAGS} -o overl main.o overlord.o minion.o 
+	${CC} ${CCFLAGS} -o overlord main.o overlord.o minion.o 
 
 main.o: main.cpp
 	${CC} ${CCFLAGS} -c main.cpp

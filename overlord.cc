@@ -27,30 +27,19 @@ void overlord::read_json(){
     
     BOOST_FOREACH( boost::property_tree::ptree::value_type &v, pt.get_child("runtime") ){
         string env, name, args;
-        int i = 0;
         BOOST_FOREACH(boost::property_tree::ptree::value_type& itemPair, v.second){
-            if ( i == 0 ){
+            if ( itemPair.first == "env" ){
                 env = itemPair.second.get_value<std::string>(); 
             }
-            else if ( i == 1 ){
+            else if ( itemPair.first == "script_name" ){
                 name = itemPair.second.get_value<std::string>();
             }
-            else {
+            else if ( itemPair.first == "arguments" ) {
                 args = itemPair.second.get_value<std::string>();
             }
-            std::cout
-                << i
-                << " : " 
-                << itemPair.second.get_value<std::string>() 
-                << " " 
-                << endl;
-            i++;
-            
         }
         minion m(env, name, args);
         subroutines.push_back(m);
-        cout << endl;
-        
     }
 }
 
