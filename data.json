@@ -6,11 +6,10 @@
             "script_name": "name_test",
             "arguments": "args_Test"
         },
-        { 
+		{
             "env": "envTest2",
             "script_name": "name_test2",
             "arguments": "args_Test2"
-        }
-        
+        }     
     ]
 }

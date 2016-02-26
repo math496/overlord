@@ -45,6 +45,6 @@ void overlord::read_json(){
 
 void overlord::run_subprocess(){
     for ( std::vector<minion>::iterator it = subroutines.begin() ; it != subroutines.end() ; ++it ){
-        cout << it->to_string() << endl;
+        it->execute();
     }
 }

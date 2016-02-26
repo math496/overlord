@@ -3,42 +3,66 @@
 
 #include <string>
 #include <cstdlib>
+#include <sstream>
 
 using namespace std;
 
 class minion {
     public:
     
-        minion();
+        minion(){
+            environment = "";
+            script_name = "";
+            arguments = "";
+        }
         
-        minion(string, string, string);
+        minion(std::string env, std::string sname, std::string arg){
+            environment = env;
+            script_name = sname;
+            arguments = arg;
+        }
         
-        ~minion();
+        ~minion(){}
         
         void execute();
         
         /**
          * Set runtime environment
         **/
-        void set_env(string);
+        void set_env(std::string env){
+            environment = env;
+        }
         
         /**
          * Location of script for env to run 
         **/
-        void set_script(string);
+        void set_script(std::string sname){
+            script_name = sname;
+        }
         
         /**
          * Script command line arguments.
         **/
-        void set_args(string);
+        void set_args(std::string args){
+            arguments = args;
+        }
         
         /**
          * Return the execution as a string
         **/
-        std::string to_string();
+        std::string to_string(){
+            std::stringstream ss;
+            ss 
+                << environment 
+                << " "
+                << script_name
+                << " "
+                << arguments;
+            return ss.str();
+        }
         
     private:
-        string environment,
+        std::string environment,
                script_name,
                arguments;
 };
