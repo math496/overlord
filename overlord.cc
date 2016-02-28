@@ -21,7 +21,7 @@ overlord::~overlord(){
     subroutines.clear();
 }
 
-void overlord::read_json(){
+void overlord::read_tests(){
     boost::property_tree::ptree pt;
     boost::property_tree::read_json(filename, pt);
     
@@ -41,6 +41,20 @@ void overlord::read_json(){
         minion m(env, name, args);
         subroutines.push_back(m);
     }
+}
+
+void overlord::read_test_files(){
+    boost::property_tree::ptree pt;
+    boost::property_tree::read_json(filename, pt);
+    
+    BOOST_FOREACH( boost::property_tree::ptree::value_type &v, pt.get_child("testFiles") ){
+        test_files.push_back( v.second.get_value<std::string>() );
+    }
+}
+
+void overlord::read_json(){
+    read_tests();
+    read_test_files();
 }
 
 void overlord::run_subprocess(){

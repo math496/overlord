@@ -1,5 +1,10 @@
 {
     "platform": "unix",
+    "testFiles": [
+        "file1.png",
+        "file2.png",
+        "file3.jpg"
+    ],
     "runtime": [
         { 
             "env": "envTest",

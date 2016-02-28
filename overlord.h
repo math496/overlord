@@ -32,6 +32,13 @@ class overlord {
     private:
         std::string filename;
         std::vector<minion> subroutines;
+        std::vector<std::string> test_files;
+        
+        // Read the files from json that are to be tested.
+        void read_test_files();
+        
+        // Read the tests that are to be ran on the files.
+        void read_tests();
 };
 
 #endif
