@@ -39,6 +39,10 @@ class overlord {
         
         // Read the tests that are to be ran on the files.
         void read_tests();
+        
+        // Determines if "%s" exists inside string
+        std::size_t find_boost_format_string(std::string);
+        
 };
 
 #endif

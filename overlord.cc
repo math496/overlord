@@ -19,6 +19,7 @@ overlord::overlord(std::string filen){
 
 overlord::~overlord(){
     subroutines.clear();
+    test_files.clear();
 }
 
 void overlord::read_tests(){
@@ -58,7 +59,17 @@ void overlord::read_json(){
 }
 
 void overlord::run_subprocess(){
-    for ( std::vector<minion>::iterator it = subroutines.begin() ; it != subroutines.end() ; ++it ){
-        it->execute();
+    for ( std::vector<minion>::iterator test = subroutines.begin() ; test != subroutines.end() ; ++test ){
+        // Check if "%s" exists within the execution string. If it doesn't, this is a run-once execution.
+        if ( find_boost_format_string( test->to_string() ) != std::string::npos ){
+            for ( std::vector<std::string>::iterator file = test_files.begin() ; file != test_files.end() ; ++file ){
+                
+            }
+        }
+        else test->execute();
     }
+}
+
+std::size_t overlord::find_boost_format_string(std::string formater){
+    return formater.find("%s");
 }

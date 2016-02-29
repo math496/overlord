@@ -26,6 +26,8 @@ class minion {
         
         void execute();
         
+        void execute(std::string);
+        
         /**
          * Set runtime environment
         **/
@@ -65,6 +67,8 @@ class minion {
         std::string environment,
                script_name,
                arguments;
+               
+        std::string format_test_string(std::string);
 };
 
 #endif

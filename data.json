@@ -14,7 +14,7 @@
 		{
             "env": "envTest2",
             "script_name": "name_test2",
-            "arguments": "args_Test2"
+            "arguments": "%s args_Test2"
         }     
     ]
 }
