@@ -63,10 +63,11 @@ void overlord::run_subprocess(){
         // Check if "%s" exists within the execution string. If it doesn't, this is a run-once execution.
         if ( find_boost_format_string( test->to_string() ) != std::string::npos ){
             for ( std::vector<std::string>::iterator file = test_files.begin() ; file != test_files.end() ; ++file ){
-                
+                test->execute( *file );
             }
         }
-        else test->execute();
+        else 
+            test->execute();
     }
 }
 
