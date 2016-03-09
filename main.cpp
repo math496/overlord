@@ -11,12 +11,28 @@
 #include <string>
 #include "overlord.h"
 
-int main(void){
+void help(std::string);
+
+int main(int argc, char* argv[]){
     
-    std::string filen = "data.json";
+    if ( argc == 1 ){
+        help(argv[0]);
+        return 0;
+    }
+    
+    std::string filen = argv[1];
     overlord o(filen);
     
     o.read_json();
     o.run_subprocess();
     return 0;
+}
+
+void help(std::string filen){
+    std::cout << "Usage: " 
+              << filen 
+              << " data_file.json" 
+              << endl
+              << "Outputs: results to output.txt"
+              << endl;
 }

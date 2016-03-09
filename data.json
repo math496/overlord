@@ -1,20 +1,19 @@
 {
     "platform": "unix",
     "testFiles": [
-        "file1.png",
-        "file2.png",
-        "file3.jpg"
+        "/Users/mwalther/projects/StegExpose/testFolder/clean_7232193260_c2fd8c0f25_z.png",
+        "/Users/mwalther/projects/StegExpose/testFolder/stego_6666458261_e455d262b5_z.png"
     ],
     "runtime": [
         { 
-            "env": "envTest",
-            "script_name": "name_test",
-            "arguments": "args_Test"
+            "env": "",
+            "script_name": "java -jar /Users/mwalther/projects/StegExpose/StegExpose.jar",
+            "arguments": "%s"
         },
 		{
             "env": "envTest2",
             "script_name": "name_test2",
-            "arguments": "%s args_Test2"
-        }     
+            "arguments": "args_Test2"
+        }
     ]
 }
